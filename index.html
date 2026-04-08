@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MicroJoy - Robot Controller</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a0a0a">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">Micro<span>Joy</span></div>
+        <div class="status-indicator">
+            <span id="bt-status-dot" class="dot disconnected"></span>
+            <span id="bt-status-text">Disconnected</span>
+        </div>
+        <button id="btn-connect" class="btn-primary">Connect BLE</button>
+    </header>
+
+    <main class="controller-area">
+        <div class="control-zone left-zone">
+            <div class="joystick-label">THROTTLE</div>
+            <div id="joystick-left" class="joystick-container">
+                <div class="joystick-knob" id="knob-left"></div>
+            </div>
+        </div>
+
+        <div class="center-zone">
+            <div class="action-buttons">
+                <button id="btn-boost" class="btn-action">BOOST</button>
+                <button id="btn-estop" class="btn-danger">E-STOP</button>
+            </div>
+            
+            <div class="settings-panel">
+                <label>Max Speed: <span id="speed-val">255</span></label>
+                <input type="range" id="slider-speed" min="50" max="255" value="255">
+                
+                <div class="mode-toggle">
+                    <label>Mode:</label>
+                    <select id="select-mode">
+                        <option value="analog">Analog</option>
+                        <option value="digital">Digital</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="debug-console" id="debug-console">
+                <div class="console-title">System Log</div>
+                <div id="log-output">Ready...</div>
+            </div>
+        </div>
+
+        <div class="control-zone right-zone">
+            <div class="joystick-label">STEERING</div>
+            <div id="joystick-right" class="joystick-container">
+                <div class="joystick-knob" id="knob-right"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>
