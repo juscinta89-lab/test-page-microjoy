@@ -1,0 +1,16 @@
+{
+  "name": "MicroJoy Robot Controller",
+  "short_name": "MicroJoy",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#e63946",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='192' height='192'><circle cx='96' cy='96' r='90' fill='%23e63946'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
